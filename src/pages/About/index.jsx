@@ -1,9 +1,9 @@
-
+import AppButton from "../../components/AppButton.jsx";
 
 
 const About = ()=>{
     return (<div>
-        this is about page
+        <AppButton danger>submit from about</AppButton>
     </div>)
 }
 
