@@ -1,0 +1,12 @@
+:root{
+    --primary:#0000aa;
+    --secondary:yellow;
+    --bg-color:white;
+}
+
+
+.dark{
+    --primary:black;
+    --secondary:#ff0aaa;
+    --bg-color: #010121;
+}

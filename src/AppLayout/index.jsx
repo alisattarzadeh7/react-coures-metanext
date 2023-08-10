@@ -1,7 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 import {Link, Outlet} from "react-router-dom";
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import {useRecoilState} from "recoil";
+import {languageAtom} from "../atom/layoutAtoms.js";
 const { Header, Content, Sider } = Layout;
 
 
@@ -41,6 +43,9 @@ const sidebarItems = [
 
 const AppLayout = ()=>{
 
+    const [language,setLanguage] = useRecoilState(languageAtom)
+
+
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -54,7 +59,9 @@ const AppLayout = ()=>{
                     alignItems: 'center',
                 }}
             >
-                <div className="demo-logo" />
+                <span style={{color:'white'}}>{language}</span>
+                &nbsp;&nbsp;&nbsp;
+                <button onClick={()=>setLanguage(language === 'fa' ? 'en' : 'fa')}>change language</button>
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
             </Header>
             <Layout>

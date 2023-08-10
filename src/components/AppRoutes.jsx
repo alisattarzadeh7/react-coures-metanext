@@ -5,6 +5,7 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 const AppRoutes = ()=>{
     const token = localStorage.getItem('token')
+
     if(!token)
         return (<BrowserRouter>
             <Routes>
