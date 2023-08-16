@@ -24,7 +24,10 @@ const Login = ()=>{
     return (<div className="flex items-center justify-center h-full">
 
 
-        <div className="w-[400px]">
+        <div className="w-[400px] flex flex-col justify-center items-center">
+            <h1 className="p-5 fo">
+                login
+            </h1>
             <AppInput value={username} onChange={(e)=>setUsername(e.target.value)} size="large" placeholder="username" />
             <br />
             <br />

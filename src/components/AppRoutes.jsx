@@ -3,16 +3,32 @@ import Home from "../pages/Home"
 import AppLayout from "../AppLayout"
 import About from "../pages/About";
 import Login from "../pages/Login";
+import Register from "../pages/Register/index.jsx";
+import {useRecoilState} from "recoil";
+import {authToken} from "../atom/AuthAtom.js";
+import {useEffect, useState} from "react";
 const AppRoutes = ()=>{
+    const [userToken,setUserToken] = useRecoilState(authToken)
     const token = localStorage.getItem('token')
+    const [mounted,setMounted] = useState(false)
 
-    if(!token)
+    if(!mounted){
+        setUserToken(token)
+    }
+
+
+    useEffect(()=>{
+        setMounted(true)
+    },[])
+
+
+    if(!userToken)
         return (<BrowserRouter>
             <Routes>
                 <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+                <Route path="*" element={ <Navigate to="login" replace={true} />} />
             </Routes>
-            <Navigate to="login" replace={true} />
-
         </BrowserRouter>)
 
     return (<BrowserRouter>
