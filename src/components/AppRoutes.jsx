@@ -7,6 +7,7 @@ import Register from "../pages/Register/index.jsx";
 import {useRecoilState} from "recoil";
 import {authToken} from "../atom/AuthAtom.js";
 import {useEffect, useState} from "react";
+import Todo from "../pages/Todo";
 const AppRoutes = ()=>{
     const [userToken,setUserToken] = useRecoilState(authToken)
     const token = localStorage.getItem('token')
@@ -36,6 +37,7 @@ const AppRoutes = ()=>{
             <Route path="/" element={<AppLayout />}>
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
+                <Route path="todo/:id" element={<Todo />} />
 
             </Route>
         </Routes>

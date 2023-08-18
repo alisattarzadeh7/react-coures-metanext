@@ -3,7 +3,7 @@ import axios from "axios"
 
 
 const http = axios.create({
-    baseURL:'https://react-mini-projects-api.classbon.com'
+    baseURL:'https://jsonplaceholder.typicode.com/'
 })
 
 http.interceptors.request.use((config)=>{

@@ -7,3 +7,8 @@ html, body, #root{
     overflow-x: hidden;
     margin:0px;
 }
+
+
+#main-layout .ant-layout-content{
+    overflow: auto;
+}
