@@ -1,9 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import fa from "./locales/fa.json"
-import en from "./locales/en.json"
+import faDictionary from "./locales/fa.json"
+import enDictionary from "./locales/en.json"
 
-export type langAbbr = 'en' | 'fa'
+export type langAbbr = 'en' | 'fa' | 'de'
 
 export type SupportedLanguagesType = Record<langAbbr, {title:string,flag:string,direction:'rtl' | 'ltr'}>
 
@@ -17,12 +17,12 @@ export const supportedLanguages:SupportedLanguagesType = {
         direction:'ltr',
         flag:'',
         title:'english'
-    }
+    },
 }
 
 const resources:Record<langAbbr,{translation:Object}> = {
-    en:{translation:en},
-    fa:{translation:fa},
+    en:{translation:enDictionary},
+    fa:{translation:faDictionary},
 }
 
 i18n.use(initReactI18next)

@@ -1,4 +1,4 @@
-import {Link, Outlet} from "react-router-dom";
+import {Link, Outlet, useLocation} from "react-router-dom";
 import {  Layout, Menu, theme } from 'antd';
 import AppHeader from "./AppHeader";
 const {  Content, Sider } = Layout;
@@ -6,11 +6,11 @@ const {  Content, Sider } = Layout;
 
 const sidebarItems = [
     {
-        key: `home`,
+        key: `/`,
         label:<Link to="/">home</Link>  ,
     },
     {
-        key: `about`,
+        key: `/about`,
         label:<Link to="/about">about</Link>  ,
     },
 ]
@@ -21,10 +21,13 @@ const AppLayout = ()=>{
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+    const location = useLocation()
 
+
+    console.log({path:location.pathname})
 
     return (<>
-        <Layout className="h-full">
+        <Layout className="h-full" id="main-layout">
             <AppHeader/>
             <Layout>
                 <Sider
@@ -35,8 +38,7 @@ const AppLayout = ()=>{
                 >
                     <Menu
                         mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
+                        defaultSelectedKeys={[location.pathname]}
                         style={{
                             height: '100%',
                             borderRight: 0,

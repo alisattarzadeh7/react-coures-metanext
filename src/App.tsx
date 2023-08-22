@@ -1,5 +1,5 @@
 import AppRoutes from "./components/AppRoutes.tsx";
-import "./assets/css/global.css"
+import "./assets/scss/global.scss"
 import "./Config/translation/i18n.ts"
 import {useEffect} from "react";
 import changeLanguage from "./helpers/changeLanguage.ts";

@@ -16,11 +16,10 @@ const AppHeader:React.FC  = ()=>{
             className="text-white"
         >
             <AppDropdown
-                items={Object.keys(supportedLanguages)
-                    .map((lng)=>({
-                        label:supportedLanguages[lng as langAbbr].title,
-                        key:supportedLanguages[lng as langAbbr].title,
-                        onClick:()=> changeLanguage(lng as langAbbr)
+                items={Object.keys(supportedLanguages).map((lngKey)=>({
+                        label:supportedLanguages[lngKey as langAbbr].title,
+                        key:supportedLanguages[lngKey as langAbbr].title,
+                        onClick:()=> changeLanguage(lngKey as langAbbr)
                     }))}
             >
                 <a onClick={(e) => e.preventDefault()}>
