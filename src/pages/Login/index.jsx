@@ -14,9 +14,6 @@ const Login = ()=>{
             Phone:username,
             password:password
         })
-
-        // console.log({data:data.data.success})
-        console.log(res.data.success.token)
         localStorage.setItem('token',res.data.success.token)
     }
 
