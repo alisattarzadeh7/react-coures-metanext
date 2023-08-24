@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useCallback, useDeferredValue, useEffect, useMemo, useRef, useState} from "react";
 import {Trans, useTranslation} from "react-i18next";
 import {Button, Card, Col, Input, Modal, Row, Spin} from 'antd';
 import {Link} from "react-router-dom";
@@ -7,15 +7,33 @@ import AddTodoDialog, {AddTodoDialogRefType} from "./components/AddTodoDialog.ts
 
 
 const Home = () => {
-
+    const [test,setTest] = useState(false)
+    const [test2,setTest2] = useState(1)
+    const deferredTest = useDeferredValue(test2)
     const {i18n, t} = useTranslation()
     const addTodoDialogRef = useRef<AddTodoDialogRefType>(null)
     const {data, isLoading,refetch} = useTodosList()
+    const [chartData,setChartData] = useState('')
 
+    useEffect(()=>{
+        if(test){
+            setChartData('ali')
+        }
+    },[test])
+
+
+    useEffect(()=>{
+        if(test2 === 2 && deferredTest === 10)
+    },[test2])
 
 
     return (<div className="h-full">
+        <div>
+            {chartData}
+        </div>
 
+        <button onClick={()=>setTest(!test)}>change Test value</button>
+        {test}
         <Button type="primary" className="mb-[10px]" onClick={()=>addTodoDialogRef.current?.openDialog()} >+</Button>
 
         {

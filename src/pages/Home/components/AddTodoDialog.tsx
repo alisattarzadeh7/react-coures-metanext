@@ -2,6 +2,7 @@ import {Button, Modal, Switch} from "antd";
 import React, {useImperativeHandle, useState} from "react";
 import AppInput from "../../../components/AppInput.tsx";
 import { useForm } from 'react-hook-form';
+import withTheme from "../../../HOC/withTheme.tsx";
 
 
 export type AddTodoDialogRefType = {
@@ -14,8 +15,9 @@ export type AddTodoDialogProps = {
     onAddTodo:()=>void
 }
 
-const AddTodoDialog:React.ForwardRefRenderFunction<AddTodoDialogRefType, AddTodoDialogProps> = ({onAddTodo},ref)=>{
+const AddTodoDialog:React.ForwardRefRenderFunction<AddTodoDialogRefType, AddTodoDialogProps> = ({onAddTodo,theme},ref)=>{
 
+    console.log('hii')
     const [openAddDialog,setOpenAddDialog] = useState(false)
     const [isCompleted,setIsCompleted] = useState(false)
     const [title,setTitle] = useState('')
@@ -51,4 +53,4 @@ const AddTodoDialog:React.ForwardRefRenderFunction<AddTodoDialogRefType, AddTodo
 }
 
 
-export default React.forwardRef(AddTodoDialog)
+export default withTheme(AddTodoDialog)
