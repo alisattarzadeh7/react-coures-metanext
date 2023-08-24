@@ -23,14 +23,14 @@ const AppRoutes = ()=>{
     },[])
 
 
-    if(!userToken)
-        return (<BrowserRouter>
-            <Routes>
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-                <Route path="*" element={ <Navigate to="login" replace={true} />} />
-            </Routes>
-        </BrowserRouter>)
+    // if(!userToken)
+    //     return (<BrowserRouter>
+    //         <Routes>
+    //             <Route path="login" element={<Login />} />
+    //             <Route path="register" element={<Register />} />
+    //             <Route path="*" element={ <Navigate to="login" replace={true} />} />
+    //         </Routes>
+    //     </BrowserRouter>)
 
     return (<BrowserRouter>
         <Routes>

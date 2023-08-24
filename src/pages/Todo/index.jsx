@@ -4,6 +4,8 @@ import http from "../../config/http.js";
 import {Button, Spin} from "antd";
 import useRequestData from "../../hooks/useRequestData.jsx";
 import useIsRtl from "../../hooks/useIsRtl.jsx";
+import {useQuery} from "@tanstack/react-query";
+import {getAllTodos, getTodoById} from "../../services/todo.service.js";
 
 
 const Todo = ()=>{
@@ -11,7 +13,8 @@ const Todo = ()=>{
     const {id} = useParams()
     const navigate = useNavigate()
 
-    const  { data:todoDetail,loading } = useRequestData(`todos/${id}`)
+    const {data:todoDetail,isLoading,isFetching, errors } = useQuery(['todo',id],()=> getTodoById(id))
+
     const isRtl = useIsRtl()
 
     const handleRedirectBack  = ()=>{
@@ -37,7 +40,7 @@ const Todo = ()=>{
         }
         </div>
         {
-            loading && <Spin />
+            isLoading && <Spin />
         }
 
 
